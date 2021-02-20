@@ -1,3 +1,4 @@
+import debug_toolbar
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
@@ -10,6 +11,7 @@ from search import views as search_views
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
+    path('__debug__/', include(debug_toolbar.urls)),
 
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
