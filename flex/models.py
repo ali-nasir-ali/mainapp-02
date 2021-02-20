@@ -1,6 +1,6 @@
 """ Flexible page """
 from django.db import models
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
@@ -12,7 +12,8 @@ class FlexPage(Page):
 
     subtitle = models.CharField(max_length=100, null=True, blank=True)
     content_panels = Page.content_panels +[
-        FieldPanel("subtitle")
+        FieldPanel("subtitle"),
+        StreamFieldPanel("content"),
     ]
 
     class Meta:
